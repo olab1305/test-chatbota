@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot dla dzieci</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #chatbox { max-width: 400px; margin: auto; border: 1px solid #ccc; padding: 10px; border-radius: 10px; }
+        .message { padding: 10px; margin: 5px; border-radius: 5px; }
+        .bot { background-color: #e3f2fd; }
+        .user { background-color: #ffecb3; }
+        .options button { margin: 5px; padding: 10px; border: none; background: #4caf50; color: white; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Chatbot dla dzieci</h2>
+    <div id="chatbox">
+        <div class="message bot">Cześć! Wybierz, o czym chcesz porozmawiać:</div>
+        <div class="options">
+            <button onclick="reply('zwierzeta')">🐶 Zwierzęta</button>
+            <button onclick="reply('zagadki')">🧩 Zagadki</button>
+            <button onclick="reply('nauka')">📚 Nauka</button>
+        </div>
+    </div>
+
+    <script>
+        function reply(topic) {
+            let chatbox = document.getElementById('chatbox');
+            let userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            
+            let botMessage = document.createElement('div');
+            botMessage.className = 'message bot';
+            
+            if (topic === 'zwierzeta') {
+                userMessage.textContent = 'Chcę rozmawiać o zwierzętach!';
+                botMessage.textContent = 'Super! Czy wiesz, że delfiny potrafią rozpoznawać się w lustrze?';
+            } else if (topic === 'zagadki') {
+                userMessage.textContent = 'Chcę zagadkę!';
+                botMessage.textContent = 'Oto zagadka: Co ma nogi, ale nie chodzi? (Krzesło!)';
+            } else if (topic === 'nauka') {
+                userMessage.textContent = 'Chcę się czegoś nauczyć!';
+                botMessage.textContent = 'Czy wiesz, że Słońce jest tak duże, że Ziemia zmieściłaby się w nim ponad milion razy?';
+            }
+            
+            chatbox.appendChild(userMessage);
+            chatbox.appendChild(botMessage);
+        }
+    </script>
+</body>
+</html>
